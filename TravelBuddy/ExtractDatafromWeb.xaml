@@ -1,0 +1,706 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtractDatafromWeb" this:ExtractDatafromWeb.in_Date="[Now.AddDays(3)]" this:ExtractDatafromWeb.in_destination="Delhi" this:ExtractDatafromWeb.in_source="Mumbai" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd2="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Date" Type="InArgument(s:DateTime)" />
+    <x:Property Name="in_destination" Type="InArgument(x:String)" />
+    <x:Property Name="in_source" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ExtractDatafromWeb_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Models</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail.Enums</x:String>
+      <x:String>UiPath.Mail.Activities.Enums</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ExtractDatafromWeb" sap:VirtualizedContainerService.HintSize="889.2,4681.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="in_Destination" />
+      <Variable x:TypeArguments="x:String" Name="in_Source" />
+      <Variable x:TypeArguments="sd2:DataTable" Name="dt_Old" />
+      <Variable x:TypeArguments="sd2:DataTable" Name="dt_Flights" />
+      <Variable x:TypeArguments="x:String" Name="str_Date_Selec" />
+      <Variable x:TypeArguments="x:String" Name="str_ExcelName" />
+      <Variable x:TypeArguments="s:DateTime" Name="in_Date" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="553.6,4658.4" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+      <TryCatch.Try>
+        <Sequence DisplayName="ExtractDatafromWeb" sap:VirtualizedContainerService.HintSize="552,4444" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="in_Email" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="All" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="518.4,174.4" sap2010:WorkflowViewState.IdRef="KillProcess_6" ProcessName="msedge">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:KillProcess>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Kill Was Successfull&quot;]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="MakeMyTrip" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="518.4,2968" sap2010:WorkflowViewState.IdRef="NApplicationCard_14" IsIncognito="False" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Always]" ScopeGuid="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="516.8,2765.6" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Flights'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,193.6" sap2010:WorkflowViewState.IdRef="NClick_27" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V5">
+                    <uix:NClick.DelayAfter>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NClick.DelayAfter>
+                    <uix:NClick.DelayBefore>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NClick.DelayBefore>
+                    <uix:NClick.InUiElement>
+                      <InArgument x:TypeArguments="ui:UiElement" />
+                    </uix:NClick.InUiElement>
+                    <uix:NClick.OutUiElement>
+                      <OutArgument x:TypeArguments="ui:UiElement" />
+                    </uix:NClick.OutUiElement>
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="makemytrip.com" ContentHash="0EWdLKFn3EK8wwlWizbGdg" DesignTimeRectangle="306, 407, 54, 24" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname=' Flights ' parentid='header-container' tag='SPAN' /&gt;" Guid="39e9e94d-47d8-4c56-b448-4daccbcf7463" InformativeScreenshot="f2e937a157834d103a1c14cca2450bbb.jpg" Reference="5Ir02d42TkeStyG2dVj08A/9Re2_cKIREahmMDN2eDjSw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights &amp;amp; Holiday' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NClick.Timeout>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'One Way'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,193.6" sap2010:WorkflowViewState.IdRef="NClick_28" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V5">
+                    <uix:NClick.DelayAfter>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NClick.DelayAfter>
+                    <uix:NClick.DelayBefore>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NClick.DelayBefore>
+                    <uix:NClick.InUiElement>
+                      <InArgument x:TypeArguments="ui:UiElement" />
+                    </uix:NClick.InUiElement>
+                    <uix:NClick.OutUiElement>
+                      <OutArgument x:TypeArguments="ui:UiElement" />
+                    </uix:NClick.OutUiElement>
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="makemytrip.com" ContentHash="UNA0s7ioPkKZMSvaE20Ehg" DesignTimeRectangle="247, 479, 115, 31" ElementType="ListItem" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='top-banner' tag='LI' /&gt;" Guid="0988159b-c02b-4841-9ed2-278e00207b56" InformativeScreenshot="6f197da617e86020c2e43c73d3bd4d18.jpg" Reference="5Ir02d42TkeStyG2dVj08A/4U5DjStJvUG6CgdtsOqvuA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights &amp;amp; Holiday' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NClick.Timeout>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <Sequence DisplayName="Select Source" sap:VirtualizedContainerService.HintSize="483.2,2318.4" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'From'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="449.6,193.6" sap2010:WorkflowViewState.IdRef="NClick_29" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V5">
+                      <uix:NClick.DelayAfter>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NClick.DelayAfter>
+                      <uix:NClick.DelayBefore>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NClick.DelayBefore>
+                      <uix:NClick.InUiElement>
+                        <InArgument x:TypeArguments="ui:UiElement" />
+                      </uix:NClick.InUiElement>
+                      <uix:NClick.OutUiElement>
+                        <OutArgument x:TypeArguments="ui:UiElement" />
+                      </uix:NClick.OutUiElement>
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="makemytrip.com" ContentHash="ERJXKQicxUSs9rfuewvlgw" DesignTimeRectangle="259, 537, 327, 21" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='From' parentid='top-banner' tag='SPAN' /&gt;" Guid="1fa83bf4-a80c-412c-b0a9-e5f04fc92c52" InformativeScreenshot="6aa61011d5b6597718e0dc80913b20b5.jpg" Reference="5Ir02d42TkeStyG2dVj08A/Pyk-fnaN1ESCtlwm1th4Zw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights &amp;amp; Holiday' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                      </uix:NClick.Target>
+                      <uix:NClick.Timeout>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NClick.Timeout>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NClick>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Source'" EmptyFieldMode="SingleLine" HealingAgentBehavior="RecommendationOnly" sap:VirtualizedContainerService.HintSize="449.6,245.6" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="DebuggerApi" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Text="[in_source]" Version="V5">
+                      <uix:NTypeInto.DelayAfter>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NTypeInto.DelayAfter>
+                      <uix:NTypeInto.DelayBefore>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NTypeInto.DelayBefore>
+                      <uix:NTypeInto.DelayBetweenKeys>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NTypeInto.DelayBetweenKeys>
+                      <uix:NTypeInto.InUiElement>
+                        <InArgument x:TypeArguments="ui:UiElement" />
+                      </uix:NTypeInto.InUiElement>
+                      <uix:NTypeInto.OutUiElement>
+                        <OutArgument x:TypeArguments="ui:UiElement" />
+                      </uix:NTypeInto.OutUiElement>
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="makemytrip.com" ContentHash="27xSiRJbQE2aKmyKn6rEeA" DesignTimeRectangle="235, 568, 440, 52" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;input' tag='INPUT' /&gt;" Guid="9c365aa4-4657-4924-8a2a-2e64797a4ea7" InformativeScreenshot="b3cbd5fc39094f026169aef244516dbb.jpg" Reference="5Ir02d42TkeStyG2dVj08A/jLyG262_bEWmXyDfji8mTg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights &amp;amp; Holiday' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                      </uix:NTypeInto.Target>
+                      <uix:NTypeInto.Timeout>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NTypeInto.Timeout>
+                      <uix:NTypeInto.VerifyOptions>
+                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                        </uix:VerifyExecutionTypeIntoOptions>
+                      </uix:NTypeInto.VerifyOptions>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NTypeInto>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Select Source" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="449.6,193.6" sap2010:WorkflowViewState.IdRef="NClick_30" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V5">
+                      <uix:NClick.DelayAfter>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NClick.DelayAfter>
+                      <uix:NClick.DelayBefore>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NClick.DelayBefore>
+                      <uix:NClick.InUiElement>
+                        <InArgument x:TypeArguments="ui:UiElement" />
+                      </uix:NClick.InUiElement>
+                      <uix:NClick.OutUiElement>
+                        <OutArgument x:TypeArguments="ui:UiElement" />
+                      </uix:NClick.OutUiElement>
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="makemytrip.com" ContentHash="nlh__cy_LUKKVTjxZ3yZXg" DesignTimeRectangle="250, 665, 392, 60" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl class='revampedSearchSuggestionMain' tag='DIV' /&gt;" Guid="22e3039a-5c54-4298-8ec2-556364688583" InformativeScreenshot="9c1fa47760e2bc1aec80ac6e855ffbc6.jpg" Reference="5Ir02d42TkeStyG2dVj08A/WVe-93e95UOwJKkIzz5zOA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights &amp;amp; Holiday' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                      </uix:NClick.Target>
+                      <uix:NClick.Timeout>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:NClick.Timeout>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NClick>
+                    <Sequence DisplayName="Select Destination" sap:VirtualizedContainerService.HintSize="449.6,716" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'To'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,193.6" sap2010:WorkflowViewState.IdRef="NClick_31" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V5">
+                        <uix:NClick.DelayAfter>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NClick.DelayAfter>
+                        <uix:NClick.DelayBefore>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NClick.DelayBefore>
+                        <uix:NClick.InUiElement>
+                          <InArgument x:TypeArguments="ui:UiElement" />
+                        </uix:NClick.InUiElement>
+                        <uix:NClick.OutUiElement>
+                          <OutArgument x:TypeArguments="ui:UiElement" />
+                        </uix:NClick.OutUiElement>
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="makemytrip.com/flights" ContentHash="6C_6N4DHOU6W69mMrVR4cg" DesignTimeRectangle="659, 467, 302, 21" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='To' parentid='top-banner' tag='SPAN' /&gt;" Guid="6c290c40-306c-4ff3-b1f0-377545f7a86c" InformativeScreenshot="dadbd60f44e5b57cbc73074e5f7f81db.jpg" Reference="5Ir02d42TkeStyG2dVj08A/sWG3oI5IBkaamAN0Y6jvGA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Flight Booking, Cheap Flights , Air Ticket Booking at Lowest Airfare | MakeMyTrip' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                        </uix:NClick.Target>
+                        <uix:NClick.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NClick.Timeout>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Destination'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,245.6" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="DebuggerApi" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Text="[in_destination]" Version="V5">
+                        <uix:NTypeInto.DelayAfter>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NTypeInto.DelayAfter>
+                        <uix:NTypeInto.DelayBefore>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NTypeInto.DelayBefore>
+                        <uix:NTypeInto.DelayBetweenKeys>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NTypeInto.DelayBetweenKeys>
+                        <uix:NTypeInto.InUiElement>
+                          <InArgument x:TypeArguments="ui:UiElement" />
+                        </uix:NTypeInto.InUiElement>
+                        <uix:NTypeInto.OutUiElement>
+                          <OutArgument x:TypeArguments="ui:UiElement" />
+                        </uix:NTypeInto.OutUiElement>
+                        <uix:NTypeInto.Target>
+                          <uix:TargetAnchorable BrowserURL="makemytrip.com/flights" ContentHash="eOQZznvZTUaptJepmsZhVg" DesignTimeRectangle="611, 498, 440, 52" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;input' tag='INPUT' /&gt;" Guid="d6ac1e9f-b0b4-49d0-9ad2-9d7829bb792b" InformativeScreenshot="ade35f41bb98de0db8a766a0f3120726.jpg" Reference="5Ir02d42TkeStyG2dVj08A/b91SWDqx1kqsfHjwieI6dA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Flight Booking, Cheap Flights , Air Ticket Booking at Lowest Airfare | MakeMyTrip' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                        </uix:NTypeInto.Target>
+                        <uix:NTypeInto.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NTypeInto.Timeout>
+                        <uix:NTypeInto.VerifyOptions>
+                          <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          </uix:VerifyExecutionTypeIntoOptions>
+                        </uix:NTypeInto.VerifyOptions>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NTypeInto>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Select Destination" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NClick_32" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V5">
+                        <uix:NClick.DelayAfter>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NClick.DelayAfter>
+                        <uix:NClick.DelayBefore>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NClick.DelayBefore>
+                        <uix:NClick.InUiElement>
+                          <InArgument x:TypeArguments="ui:UiElement" />
+                        </uix:NClick.InUiElement>
+                        <uix:NClick.OutUiElement>
+                          <OutArgument x:TypeArguments="ui:UiElement" />
+                        </uix:NClick.OutUiElement>
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="makemytrip.com/flights" DesignTimeRectangle="626, 595, 391, 60" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl class='revampedSearchSuggestionMain' tag='DIV' /&gt;" Guid="cbff0c5d-c0bf-4e99-9197-9886877a6379" InformativeScreenshot="e7f55f5a27b9564b440c4d321a34e1ff.jpg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Flight Booking, Cheap Flights , Air Ticket Booking at Lowest Airfare | MakeMyTrip' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                        </uix:NClick.Target>
+                        <uix:NClick.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:NClick.Timeout>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                    </Sequence>
+                    <Sequence DisplayName="Select Date" sap:VirtualizedContainerService.HintSize="449.6,886.4" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="Assign_6">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[str_Date_Selec]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[in_Date.ToString("MMM dd yyyy")]</InArgument>
+                        </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Assign>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Departure'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,193.6" sap2010:WorkflowViewState.IdRef="NClick_33" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V5">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="makemytrip.com/flights" ContentHash="hjl4vB1meEiNYv4fTvJCNQ" DesignTimeRectangle="1009, 467, 149, 21" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Departure' parentid='top-banner' tag='SPAN' /&gt;" Guid="a309a290-97e9-47ce-b184-05c310e38ebb" InformativeScreenshot="ba303ff0b64ed512b3f38f32347b4f56.jpg" Reference="5Ir02d42TkeStyG2dVj08A/Lgtvhrw0qkO3-m6xv1Dxqw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Flight Booking, Cheap Flights , Air Ticket Booking at Lowest Airfare | MakeMyTrip' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                        </uix:NClick.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Date'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,193.6" sap2010:WorkflowViewState.IdRef="NClick_34" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V5">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="makemytrip.com/flights" ContentHash="xFpPzfZl0UqEwatHnyr6vg" DesignTimeRectangle="867, 838, 67, 50" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl class='dateInnerCell' idx='26' parentid='top-banner' tag='DIV' /&gt;" Guid="e4105fed-8a24-45cb-b736-7f01a131a576" InformativeScreenshot="f01d95e227e45e2dfd6cf6701644193d.jpg" Reference="5Ir02d42TkeStyG2dVj08A/e71x62oHhUSDsJPisBsleg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Flight Booking, Cheap Flights , Air Ticket Booking at Lowest Airfare | MakeMyTrip' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                        </uix:NClick.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,193.6" sap2010:WorkflowViewState.IdRef="NClick_35" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b11c4fec-17f9-46ee-99dc-916fd481e637" Version="V5">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="makemytrip.com/flights" ContentHash="4mqZXAsmdEiIkNUflec3Nw" DesignTimeRectangle="825, 798, 270, 55" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Search' parentid='top-banner' tag='A' /&gt;" Guid="2bb247ef-5af5-4cdc-a4d9-cf3e3fa26e07" InformativeScreenshot="11fca9b4f4f74fd67f0cfb0eb47833e6.jpg" Reference="5Ir02d42TkeStyG2dVj08A/KmtuHQA-R0qYGpmdCQNmxA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Flight Booking, Cheap Flights , Air Ticket Booking at Lowest Airfare | MakeMyTrip' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                        </uix:NClick.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Data Entered and Search Clicked&quot;]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:LogMessage>
+                    </Sequence>
+                  </Sequence>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.OCREngine>
+              <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                <ActivityFunc.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                </ActivityFunc.Argument>
+              </ActivityFunc>
+            </uix:NApplicationCard.OCREngine>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" ContentHash="WPtQRr1x40SdQPqhrw5MGQ" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGpSURBVDhPnZPLLwNRFMbnL6l4LVgRFiUlHpsmJBaiNioShJ0mgrARK2JhIaISIop4pCJEhIiIBWrBlJZWaAf1ar3pE51+cq+0MjNdDDf5Mifnfud3zz2ZyzAMw7BKhYZVKk5YpQIyRbwaUhstFhvkSkMA9jgbcmUjAHHyT4oB7Fo1zpqqaGwtzYa1JEtgPChKg7O1nsbmvBTqiQGOypTgA354WRMOi9MRur7EVV8nuI5GuMcHqZF8vXs7NL43GuCZHv4FOJq0eNlcxdOyEc9riyDLoasGHwzgaWUeFnUmPYB0cKwpAB/wCTsgutH3Isid0uKQi4PfbkEk/IXL7jY8Ls2C9/tgzkvG69Y63BN66QzedjcR4cN4mDMg8vlBAd59E26H++jpPsseHM01NLaoM4QAc24iwj4v3IYB3I32U5OtshDB8zOE319pF3TxPDyTQ4Lh/gBUSbg3juEgP5UOztlaRzcJzNlSCzYnARddOtrhcblKCpAjrr0B/hOrJC8b8LgwBc/MiCRPADZxMp7etjck94/+yhViczxxbfVw9bSL84IX+a/n/A1Z+2vHyTaRGgAAAABJRU5ErkJggg==" InformativeScreenshot="cc2e2c07cd6087d72784c267bac429d7.jpg" Reference="5Ir02d42TkeStyG2dVj08A/_99-M3HTrkO0NxzErNMIcg" Selector="&lt;html app='msedge.exe' title='MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights &amp;amp; Holiday' /&gt;" Url="https://www.makemytrip.com/" Version="V2">
+                <uix:TargetApp.Arguments>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.Arguments>
+                <uix:TargetApp.WorkingDirectory>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.WorkingDirectory>
+              </uix:TargetApp>
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Browser Edge: MakeMyTrip" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="518.4,1067.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_15" InteractionMode="DebuggerApi" ScopeGuid="a7d6cc1c-c1a8-4e37-bedf-57b9e0b7c05a" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,873.6" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="Int32" />
+                    <Variable x:TypeArguments="x:String" Name="rowCount" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NExtractDataGeneric x:TypeArguments="sd2:DataTable" ContinueOnError="True" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Flights'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='Departure'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='Arrival'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column3' Name='Prices'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='fulltext'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='label' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='fulltext'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='label' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column3' attr='fulltext'&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" ExtractedData="[dt_Flights]" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,142.4" sap2010:WorkflowViewState.IdRef="NExtractDataGeneric`1_10" InputDataTable="[dt_Flights]" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="a7d6cc1c-c1a8-4e37-bedf-57b9e0b7c05a" Version="V5">
+                    <uix:NExtractDataGeneric.DelayAfter>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NExtractDataGeneric.DelayAfter>
+                    <uix:NExtractDataGeneric.DelayBefore>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NExtractDataGeneric.DelayBefore>
+                    <uix:NExtractDataGeneric.DelayBetweenPages>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NExtractDataGeneric.DelayBetweenPages>
+                    <uix:NExtractDataGeneric.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.makemytrip.com/flight/search?itinerary=DEL-BOM-26/03/2026&amp;tripType=O&amp;paxType=A-1_C-0_I-0&amp;intl=false&amp;cabinClass=E&amp;lang=eng&amp;cmp=SEM|D|DF|B|Brand|Brand-BrandExact_DT|B_M_Makemytrip_Search_Exact|RSA|" DesignTimeRectangle="609, 375, 1100, 16334" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl class='clusterContent' parentid='listing-id' tag='DIV' /&gt;" Guid="6d405671-6f24-4eea-9f58-8809422d817e" InformativeScreenshot="3eb1035058d0c163d321b61917510404.jpg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='MakeMyTrip' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NExtractDataGeneric.Target>
+                    <uix:NExtractDataGeneric.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:NExtractDataGeneric.Timeout>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NExtractDataGeneric>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Data Extracted Successfull&quot;]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <Assign sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[str_ExcelName]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[in_Source + "_" + in_Destination + "_" + in_Date.ToString.Replace("/","_") + ".xlsx"]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <ui:WriteRange DataTable="[dt_Flights]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="416,278.4" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[Path.Combine(&quot;C:\Users\garga\OneDrive\Documents\UiPath\TravelBuddy\data&quot;,str_ExcelName)]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:WriteRange>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Data Saved at : &quot;+Path.Combine(&quot;C:\Users\garga\OneDrive\Documents\UiPath\TravelBuddy\data&quot;,str_ExcelName)]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <uix:NClosePopup PopupException="{x:Null}" PopupHandled="{x:Null}" DisplayName="Close Popup" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="NClosePopup_3" PreferredButtons="[New String(){&quot;Close&quot;, &quot;Cancel&quot;}]" Version="V5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClosePopup>
+                  <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="All" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="KillProcess_7" ProcessName="msedge">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:KillProcess>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.OCREngine>
+              <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                <ActivityFunc.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                </ActivityFunc.Argument>
+              </ActivityFunc>
+            </uix:NApplicationCard.OCREngine>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" IconBase64="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" InformativeScreenshot="9e97a9e509c32a41f676b690a80c8eaa.jpg" Selector="&lt;html app='msedge.exe' title='MakeMyTrip' /&gt;" Url="https://www.makemytrip.com/flight/search?itinerary=DEL-BOM-26/03/2026&amp;tripType=O&amp;paxType=A-1_C-0_I-0&amp;intl=false&amp;cabinClass=E&amp;lang=eng&amp;cmp=SEM|D|DF|B|Brand|Brand-BrandExact_DT|B_M_Makemytrip_Search_Exact|RSA|" Version="V2">
+                <uix:TargetApp.Arguments>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.Arguments>
+                <uix:TargetApp.WorkingDirectory>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.WorkingDirectory>
+              </uix:TargetApp>
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,24.8" sap2010:WorkflowViewState.IdRef="Sequence_23">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Error" Message="[exception.ToString]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="552,24.8" sap2010:WorkflowViewState.IdRef="Sequence_29">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>

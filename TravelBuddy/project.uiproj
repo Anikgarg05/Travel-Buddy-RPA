@@ -1,0 +1,6 @@
+{
+  "Name": "TravelBuddy",
+  "ProjectType": "Process",
+  "Description": "Travel Buddy Robot",
+  "MainFile": "Main.xaml"
+}
